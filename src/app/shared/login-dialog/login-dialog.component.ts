@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AuthService } from '@core/auth.service';
+import { AuthService } from '../../core/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { RecoveryPasswordDialogComponent } from '../recovery-password-dialog/recovery-password-dialog.component';
+import { User } from '../../core/user.model';
+import { Role } from '@core/role.model';
 
 @Component({
   templateUrl: 'login-dialog.component.html',
@@ -19,7 +21,9 @@ export class LoginDialogComponent {
 
   login(): void {
     this.auth.login(this.mobile, this.password).subscribe(
-      (res) => {
+      (user: User) => {
+        const role = user.role;
+        console.log(user.role === Role.ADMIN);
         this.dialog.closeAll();
       }
     );

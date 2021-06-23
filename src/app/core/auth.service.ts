@@ -29,7 +29,6 @@ export class AuthService {
           this.user.mobile = jwtHelper.decodeToken(jsonToken.token).user;  // secret key is not necessary
           this.user.name = jwtHelper.decodeToken(jsonToken.token).name;
           this.user.role = jwtHelper.decodeToken(jsonToken.token).role;
-
           this.password = pass;
           this.onLogin$.next(this.user);
           return this.user;

@@ -1,17 +1,26 @@
-<mat-toolbar fxLayout 
-             fxLayoutAlign="space-around center" 
-             color="primary">
+<mat-toolbar fxLayout fxLayoutAlign="space-around center" color="primary">
     <span>My App</span>
     <app-date></app-date>
-    <button mat-icon-button 
-            class="example-icon favorite-icon"
-            aria-label="Example icon-button with heart icon"
+    <ng-template [ngIf]="username != undefined">
+        <div>
+            <span>{{ username }}</span>
+            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+                (click)="onLogout()">
+                <mat-icon>person</mat-icon>
+                Logout
+            </button>
+        </div>
+    </ng-template>
+    <ng-template [ngIf]="username == undefined">
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
             (click)="openLoginDialog()">
-        <mat-icon>person</mat-icon>
-        Login
-    </button>
+            <mat-icon>person</mat-icon>
+            Login
+        </button>
+    </ng-template>
 </mat-toolbar>
 <div>
     <h1>WELCOME TO MY APP</h1>
 </div>
+<router-outlet></router-outlet>
 <app-footer></app-footer>
