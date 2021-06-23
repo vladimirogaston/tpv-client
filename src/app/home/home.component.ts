@@ -4,27 +4,25 @@ import { MatDialog } from '@angular/material/dialog';
 import { LoginDialogComponent } from '@shared/login-dialog/login-dialog.component';
 import { Subscription } from 'rxjs';
 import { User } from '@core/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit {
 
   username: string = undefined;
-  private onlogin: Subscription;
+  onlogin: Subscription;
 
-  constructor(private authService: AuthService, private dialog: MatDialog) { }
+  constructor(private authService: AuthService, private dialog: MatDialog, private router: Router) { }
 
   ngOnInit() {
-    this.onlogin = this.authService.onLogin().subscribe((user: User)=>{
-      if(user) this.username = user.role;
+    this.onlogin = this.authService.onLogin().subscribe((user)=>{
+      this.username = user.role;
     });
-  }
-
-  ngOnDestroy() {
-    this.onlogin.unsubscribe();
+    this.router.navigateByUrl('/welcome');
   }
 
   openLoginDialog() {
@@ -34,5 +32,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   onLogout() {
     this.username = undefined;
+  }
+
+  isLoggedUser() {
+    return this.username != undefined;
   }
 }
