@@ -1,0 +1,13 @@
+<h3 mat-dialog-title>Login</h3>
+<mat-dialog-content fxLayout="column" fxLayoutGap="5px">
+    <mat-form-field>
+        <input [(ngModel)]="mobile" type="text" placeholder="mobile" matInput />
+    </mat-form-field>
+    <mat-form-field>
+        <input [(ngModel)]="password" matInput placeholder="Password" type="password" />
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button (click)="login()" mat-button>Submit</button>
+</mat-dialog-actions>

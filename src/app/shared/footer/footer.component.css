@@ -1,0 +1,12 @@
+mat-toolbar-row {
+    height: 200px;
+}
+
+mat-icon {
+    color: white;
+}
+
+span {
+    color: white;
+    padding-left: 10px;
+}

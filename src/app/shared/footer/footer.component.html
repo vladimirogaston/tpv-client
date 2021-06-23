@@ -1,0 +1,26 @@
+<mat-toolbar color="primary" 
+             fxLayout 
+             fxLayoutAlign="space-between center">
+    <mat-toolbar-row>
+        <mat-list>
+            <mat-list-item>
+                <mat-icon>room</mat-icon>
+                <span>{{ location }}</span>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon>phone</mat-icon>
+                <span>{{ contact }}</span>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon>email</mat-icon>
+                <span>{{ email }}</span>
+            </mat-list-item>
+        </mat-list>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+        <div fxLayout fxLayoutAlign="space-between center">
+            <h3>USERS_REST_API:</h3>
+            <span>{{ tpvUsers }}</span>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

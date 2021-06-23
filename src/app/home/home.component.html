@@ -1,0 +1,17 @@
+<mat-toolbar fxLayout 
+             fxLayoutAlign="space-around center" 
+             color="primary">
+    <span>My App</span>
+    <app-date></app-date>
+    <button mat-icon-button 
+            class="example-icon favorite-icon"
+            aria-label="Example icon-button with heart icon"
+            (click)="openLoginDialog()">
+        <mat-icon>person</mat-icon>
+        Login
+    </button>
+</mat-toolbar>
+<div>
+    <h1>WELCOME TO MY APP</h1>
+</div>
+<app-footer></app-footer>
